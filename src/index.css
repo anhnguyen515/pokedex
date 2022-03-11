@@ -9,3 +9,9 @@ html {
   margin: 0;
   padding: 0;
 }
+
+body {
+  font-family: "VT323", monospace;
+  margin: 0 auto;
+  width: 960px;
+}
