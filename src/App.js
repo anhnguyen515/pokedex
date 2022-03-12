@@ -1,41 +1,19 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import PokemonDetail from "./pages/PokemonDetail";
 
 function App() {
-  const [pokemons, setPokemons] = useState([]);
-  const [loadMore, setLoadMore] = useState(`https://pokeapi.co/api/v2/pokemon`);
-
-  function createPokemonObject(results) {
-    results.forEach((pokemon) => {
-      axios
-        .get(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
-        .then((res) => {
-          const data = res.data;
-          setPokemons((prev) => [...prev, data]);
-        });
-    });
-  }
-
-  function getAllPokemons() {
-    axios
-      .get(loadMore)
-      .then((res) => {
-        const data = res.data;
-        setLoadMore(data.next);
-        createPokemonObject(data.results);
-      })
-      .catch((err) => console.log(err));
-  }
-
-  useEffect(() => {
-    getAllPokemons();
-  }, []);
-
   return (
-    <div className="App">
+    <>
       <h1>Pokedex</h1>
-      <button onClick={getAllPokemons}>Fetch more Pokemons!!!</button>
-    </div>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/:slug" element={<PokemonDetail />} />
+        </Routes>
+      </Router>
+    </>
   );
 }
 

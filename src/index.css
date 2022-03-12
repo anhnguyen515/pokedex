@@ -12,6 +12,71 @@ html {
 
 body {
   font-family: "VT323", monospace;
-  margin: 0 auto;
-  width: 960px;
+  background-image: url("https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png");
+}
+
+h1 {
+  font-size: 4.5rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+/* ===== POKEDEX ===== */
+.pokedex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  background-color: white;
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 960px;
+}
+
+.pokedex--load-btn {
+  display: block;
+  background-color: #30a7d7;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-family: "VT323", monospace;
+  font-size: 1.25rem;
+  margin: 10px auto 50px;
+  padding: 10px 20px;
+}
+
+/* ===== POKEMON CARD ===== */
+.pokemon--card {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+}
+
+.pokemon--image {
+  padding: 10px;
+  width: 150px;
+  height: 150px;
+}
+
+.pokemon--name {
+  font-size: 2.25rem;
+}
+
+.pokemon--types {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.pokemon--type {
+  border-radius: 5px;
+  color: white;
+  padding: 3px 10px;
+  width: 90px;
 }
