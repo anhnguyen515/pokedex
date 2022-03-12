@@ -34,6 +34,7 @@ export default function Home() {
 
   return (
     <>
+      <h1>Pokedex</h1>
       <div className="pokedex">
         {pokemon.map((item) => (
           <PokeCard
