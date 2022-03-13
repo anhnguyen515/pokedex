@@ -18,7 +18,7 @@ export default function PokeCard(props) {
         }}
       >
         <p className="card--pokemon-id">{`#${PokemonIdFormat(props.id)}`}</p>
-        <Card.Img variant="top" src={props.img} />
+        <Card.Img src={props.img} />
         <Card.Body>
           <Card.Title>
             <h2>{UppercaseFirstLetter(props.name)}</h2>

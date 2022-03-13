@@ -3,6 +3,7 @@ import axios from "axios";
 import PokeCard from "../components/PokeCard";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import Loading from "../components/Loading";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const [pokemon, setPokemon] = useState([]);
@@ -10,14 +11,12 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   function createPokemonObject(results) {
-    results.forEach((pokemon) => {
-      axios
+    results.forEach(async (pokemon) => {
+      await axios
         .get(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
-        .then((res) => {
+        .then(async (res) => {
           const data = res.data;
-          setIsLoading(true);
-          setPokemon((prev) => [...prev, data]);
-          setIsLoading(false);
+          await setPokemon((prev) => [...prev, data]);
         });
     });
   }
@@ -52,7 +51,7 @@ export default function Home() {
                 <PokeCard
                   slug={item.name}
                   id={item.id}
-                  img={item.sprites.other.dream_world.front_default}
+                  img={item.sprites.front_default}
                   name={item.name}
                   types={item.types}
                 />
