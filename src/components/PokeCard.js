@@ -1,4 +1,5 @@
 import React from "react";
+import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import {
   PokemonColor,
@@ -8,31 +9,35 @@ import {
 
 export default function PokeCard(props) {
   return (
-    <Link
-      to={`/${props.slug}`}
-      className="pokemon--card"
-      style={{
-        backgroundColor: `${PokemonColor(props.types[0].type.name).slice(
-          -1
-        )}40`,
-      }}
-    >
-      <p className="pokemon--id">{`#${PokemonIdFormat(props.id)}`}</p>
-      <img className="pokemon--image" src={props.img} alt="pokemon avatar" />
-      <p className="pokemon--name">{UppercaseFirstLetter(props.name)}</p>
-      <div className="pokemon--types">
-        {props.types.map((type, index) => (
-          <p
-            key={index}
-            className="pokemon--type"
-            style={{
-              background: `${PokemonColor(type.type.name)[0]}`,
-            }}
-          >
-            {UppercaseFirstLetter(type.type.name)}
-          </p>
-        ))}
-      </div>
+    <Link to={`/${props.slug}`} className="card--link">
+      <Card
+        style={{
+          backgroundColor: `${PokemonColor(props.types[0].type.name).slice(
+            -1
+          )}80`,
+        }}
+      >
+        <p className="card--pokemon-id">{`#${PokemonIdFormat(props.id)}`}</p>
+        <Card.Img variant="top" src={props.img} />
+        <Card.Body>
+          <Card.Title>
+            <h2>{UppercaseFirstLetter(props.name)}</h2>
+          </Card.Title>
+          <Card.Text className="card--pokemon-types">
+            {props.types.map((type, index) => (
+              <span
+                key={index}
+                className="card--pokemon-type"
+                style={{
+                  background: `${PokemonColor(type.type.name)[0]}`,
+                }}
+              >
+                {UppercaseFirstLetter(type.type.name)}
+              </span>
+            ))}
+          </Card.Text>
+        </Card.Body>
+      </Card>
     </Link>
   );
 }

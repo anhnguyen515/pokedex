@@ -11,76 +11,91 @@ html {
 }
 
 body {
-  font-family: "VT323", monospace;
+  font-family: sans-serif;
   background-image: url("https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png");
 }
 
 h1 {
-  font-size: 4.5rem;
+  padding: 20px 0;
   text-align: center;
   text-transform: uppercase;
 }
 
-a {
-  color: black;
-  text-decoration: none;
-}
-
-.container {
-  max-width: 960px;
-  margin: 0 auto;
-}
-
 /* ===== POKEDEX ===== */
 .pokedex {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
   background-color: white;
-  margin: 20px auto;
   padding: 20px;
 }
 
 .pokedex--load-btn {
-  display: block;
-  background-color: #30a7d7;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  cursor: pointer;
-  font-family: "VT323", monospace;
-  font-size: 1.25rem;
-  margin: 10px auto 50px;
-  padding: 10px 20px;
+  display: block !important;
+  margin: 50px auto;
 }
 
 /* ===== POKEMON CARD ===== */
-.pokemon--card {
-  flex: 1;
-  padding: 10px;
+.card--link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.card--link:hover {
+  color: inherit;
+}
+
+.card {
+  margin: 10px;
+}
+
+.card-img-top {
+  height: 50vw;
+  max-height: 200px;
+}
+
+.card-title {
   text-align: center;
 }
 
-.pokemon--image {
-  padding: 10px;
-  width: 150px;
-  height: 150px;
+.card--pokemon-id {
+  text-align: center;
 }
 
-.pokemon--name {
-  font-size: 2.25rem;
-}
-
-.pokemon--types {
+.card--pokemon-types {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: auto;
+  margin: 0 auto;
+  width: 80%;
 }
 
-.pokemon--type {
+.card--pokemon-type {
   border-radius: 5px;
   color: white;
-  padding: 3px 10px;
-  width: 90px;
+  text-align: center;
+  text-shadow: 0 0 2px black;
+  width: 80px;
+}
+
+/* ===== POKEMON DETAIL ===== */
+.detail--pokemon-image {
+  width: 80%;
+}
+
+.detail--pokemon-description {
+  font-style: italic;
+  font-size: 1.2rem;
+}
+
+.detail--pokemon-stat {
+  /* border: 1px solid red; */
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.detail--pokemon-stat span {
+  text-align: right;
+  flex-basis: 25%;
 }

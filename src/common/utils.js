@@ -6,6 +6,10 @@ export function PokemonIdFormat(id) {
   return ("00" + id).slice(-3);
 }
 
+export function StatFormat(stat) {
+  return UppercaseFirstLetter(stat).replace("-", " ");
+}
+
 export function PokemonColor(type) {
   switch (type) {
     case "normal":
